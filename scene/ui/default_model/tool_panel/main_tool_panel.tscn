@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://7sq0i5j4uaw"]
+
+[ext_resource type="PackedScene" uid="uid://12qrgxt2kjj3" path="res://scene/ui/base_model/tool_panel_model.tscn" id="1_hyjmi"]
+[ext_resource type="Script" uid="uid://bcxfkyrnm2bxk" path="res://scene/ui/default_model/tool_panel/main_tool_panel.gd" id="2_l4q7s"]
+
+[node name="MainToolPanel" instance=ExtResource("1_hyjmi")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_l4q7s")
+
+[node name="OpenPanelButton" type="Button" parent="MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "打开面板"
+alignment = 0
+
+[node name="CloseAllPanelButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "关闭全部面板"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OpenPanelButton" to="." method="_on_open_panel_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseAllPanelButton" to="." method="_on_close_all_panel_button_pressed"]

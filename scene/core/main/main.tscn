@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://tpg3gbfyd77r"]
+
+[ext_resource type="Script" uid="uid://cd2agrj2dlw7v" path="res://scene/core/main/main.gd" id="1_lwahv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lwahv")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Panel" type="Panel" parent="Ui"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="CloseButton" type="Button" parent="Ui/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "X"
+
+[node name="UiEx" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="UiTool" type="CanvasLayer" parent="."]
+
+[connection signal="gui_input" from="Ui/Panel" to="." method="_on_panel_gui_input"]
+[connection signal="pressed" from="Ui/Panel/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
