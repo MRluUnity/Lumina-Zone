@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="鹿米"
+run/main_scene="uid://tpg3gbfyd77r"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

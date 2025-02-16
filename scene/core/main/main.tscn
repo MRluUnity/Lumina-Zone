@@ -24,12 +24,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/Panel/MarginContainer"]
+[node name="Header" type="HBoxContainer" parent="Ui/Panel/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="CloseButton" type="Button" parent="Ui/Panel/MarginContainer/HBoxContainer"]
+[node name="CloseButton" type="Button" parent="Ui/Panel/MarginContainer/Header"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -42,4 +43,4 @@ unique_name_in_owner = true
 [node name="UiTool" type="CanvasLayer" parent="."]
 
 [connection signal="gui_input" from="Ui/Panel" to="." method="_on_panel_gui_input"]
-[connection signal="pressed" from="Ui/Panel/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Ui/Panel/MarginContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]

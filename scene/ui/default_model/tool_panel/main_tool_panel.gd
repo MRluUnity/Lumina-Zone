@@ -31,12 +31,14 @@ func _ready() -> void:
 # TODO_FUC 打开面板
 func _on_open_panel_button_pressed() -> void:
 	# WARNING 点击这个按钮可以打开面板选择器
-	UiTool.queue_free_ui_scene(UiTool.UI_NAME["主界面工具面板"], UiTool.UiType.TOOL_PANEL)
+	UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["创建新面板"], UiTool.UiType.PANEL, "ui_ex")
+	UiTool.queue_free_null_ui_scene(self)
 
 # TODO_FUC 关闭全部面板
 func _on_close_all_panel_button_pressed() -> void:
 	# WARNING 点击这个按钮可以关闭全部面板
-	UiTool.queue_free_ui_scene(UiTool.UI_NAME["主界面工具面板"], UiTool.UiType.TOOL_PANEL)
+	UiTool.queue_all_panel()
+	UiTool.queue_free_null_ui_scene(self)
 #endregion
 
 # TODO 主场景工具面板 ===============>工具方法<===============

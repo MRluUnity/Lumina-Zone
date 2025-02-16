@@ -43,8 +43,10 @@ func _on_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("mouse_right"):
 			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["主界面工具面板"], UiTool.UiType.TOOL_PANEL, "ui_ex", get_global_mouse_position())
+
 		if event.is_action_pressed("mouse_left"):
-			UiTool.queue_free_ui_scene(UiTool.UI_NAME["主界面工具面板"], UiTool.UiType.TOOL_PANEL)
+			if UiTool.tool_uis.has(UiTool.UI_NAME["主界面工具面板"]):
+				UiTool.queue_free_null_ui_scene(UiTool.tool_uis[UiTool.UI_NAME["主界面工具面板"]])
 #endregion
 
 # TODO 主场景 ===============>工具方法<===============

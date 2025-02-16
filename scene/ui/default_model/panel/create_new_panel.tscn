@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c11gic5p10yd7"]
+
+[ext_resource type="PackedScene" uid="uid://dwmmrcdl0y5n5" path="res://scene/ui/base_model/panel_model.tscn" id="1_duh1f"]
+
+[node name="CreateNewPanel" instance=ExtResource("1_duh1f")]
+
+[node name="CloseButton" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "X"
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+text = "创建面板"
