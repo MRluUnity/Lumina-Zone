@@ -17,14 +17,16 @@ const UI_SCENE : Dictionary[String, PackedScene] = {
 	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/create_new_panel.tscn"),
 	"QuestGroupPanel" : preload("res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.tscn"),
 	"QuestGroupBar" : preload("res://scene/ui/default_model/bar/quest_group_bar.tscn"),
-	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_tool_panel.tscn")
+	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_tool_panel.tscn"),
+	"AddQuestGroupPanel" : preload("res://scene/ui/default_model/panel/add_quest_group_panel.tscn")
 }
 const UI_NAME : Dictionary[String, String] = {
 	"主界面工具面板" : "MainToolPanel",
 	"创建新面板" : "CreateNewPanel",
 	"任务组面板" : "QuestGroupPanel",
 	"任务组条" : "QuestGroupBar",
-	"任务组工具面板" : "QuestGroupToolPanel"
+	"任务组工具面板" : "QuestGroupToolPanel",
+	"添加任务组面板" : "AddQuestGroupPanel"
 }
 enum UiType {
 	TOOL_PANEL,

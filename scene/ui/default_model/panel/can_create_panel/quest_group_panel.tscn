@@ -4,12 +4,17 @@
 [ext_resource type="Script" uid="uid://ce2hjob8apheg" path="res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.gd" id="2_m0qq6"]
 
 [node name="QuestGroupPanel" instance=ExtResource("1_c3b4p")]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(600, 600)
 script = ExtResource("2_m0qq6")
 panel_name = "任务组面板"
 
 [node name="TitleLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 text = "任务组"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" index="0"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="QuestGroupList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer" index="0"]
+unique_name_in_owner = true
 layout_mode = 2

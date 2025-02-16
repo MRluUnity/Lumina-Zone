@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cfjeke043fmgn"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cfjeke043fmgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5d72"]
 bg_color = Color(1, 0.439216, 0.533333, 0)
@@ -64,6 +64,22 @@ shadow_color = Color(1, 0.43968, 0.534876, 0.6)
 shadow_size = 4
 shadow_offset = Vector2(4, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag65a"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.376471, 0.839216, 0.913725, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4os6"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -106,6 +122,12 @@ Button/styles/hover = SubResource("StyleBoxFlat_bgqvo")
 Button/styles/normal = SubResource("StyleBoxFlat_pt4bx")
 Button/styles/pressed = SubResource("StyleBoxFlat_58gln")
 HBoxContainer/constants/separation = 16
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.313726, 0.313726, 0.313726, 0.690196)
+LineEdit/font_sizes/font_size = 24
+LineEdit/styles/focus = SubResource("StyleBoxFlat_ag65a")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ag65a")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_ag65a")
 MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32

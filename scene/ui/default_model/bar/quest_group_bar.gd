@@ -32,8 +32,8 @@ class_name QuestGroupBar extends BarModel
 
 # TODO 任务组条 ===============>工具方法<===============
 #region 工具方法
-func _set_quest_group(quest_group_name : String, quest_group_desc : String) -> void:
-	%QuestLabel.text = quest_group_name
-	%ComponentButton.text = quest_group_desc
-	tooltip_text = quest_group_desc
+func _set_quest_group(quest_group : QuestGroup) -> void:
+	%QuestGroupNameLabel.text = quest_group.quest_group_name
+	%QuestGroupDescTextEdit.text = quest_group.quest_group_desc
+	tooltip_text = quest_group.quest_group_desc
 #endregion

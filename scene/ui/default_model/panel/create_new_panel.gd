@@ -33,7 +33,7 @@ func _ready() -> void:
 	var dir = DirAccess.open(PANEL_GROUP)
 	for file in dir.get_files():
 		if file.ends_with(".gd") or file.ends_with(".uid"): continue
-		print(PANEL_GROUP.path_join(file))
+
 		var scene : PanelModel = load(PANEL_GROUP.path_join(file)).instantiate()
 
 		var button : Button = Button.new()
