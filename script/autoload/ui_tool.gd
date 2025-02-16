@@ -14,11 +14,13 @@ extends Node
 #region 常量
 const UI_SCENE : Dictionary[String, PackedScene] = {
 	"MainToolPanel" : preload("res://scene/ui/default_model/tool_panel/main_tool_panel.tscn"),
-	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/create_new_panel.tscn")
+	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/create_new_panel.tscn"),
+	"QuestGroupPanel" : preload("res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.tscn")
 }
 const UI_NAME : Dictionary[String, String] = {
 	"主界面工具面板" : "MainToolPanel",
-	"创建新面板" : "CreateNewPanel"
+	"创建新面板" : "CreateNewPanel",
+	"任务组面板" : "QuestGroupPanel"
 }
 enum UiType {
 	TOOL_PANEL,

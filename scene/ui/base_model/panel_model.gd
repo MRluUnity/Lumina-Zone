@@ -12,13 +12,27 @@ class_name PanelModel extends PanelContainer
 
 # TODO 面板模块 ===============>变 量<===============
 #region 变量
+@export var panel_name : String
 
+var drag : bool = false:
+	set(v):
+		drag = v
+		if drag:
+			drag_pos = get_global_mouse_position() - global_position
+var drag_pos : Vector2
 #endregion
 
 # TODO 面板模块 ===============>虚方法<===============
 #region 常用的虚方法
 func _ready() -> void:
 	pass
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		drag = event.is_action_pressed("mouse_mid")
+
+	if drag:
+		global_position = get_global_mouse_position() - drag_pos
 
 #endregion
 

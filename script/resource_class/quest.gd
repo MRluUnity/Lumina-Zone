@@ -20,6 +20,7 @@ class_name Quest extends Resource
 @export var quest_name : String
 @export_multiline var quest_desc : String
 @export var complete : bool = false
+@export var link_quest_group : QuestGroup
 #endregion
 
 # TODO 任务 ===============>虚方法<===============

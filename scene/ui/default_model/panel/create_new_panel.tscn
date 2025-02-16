@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c11gic5p10yd7"]
+[gd_scene load_steps=3 format=3 uid="uid://c11gic5p10yd7"]
 
 [ext_resource type="PackedScene" uid="uid://dwmmrcdl0y5n5" path="res://scene/ui/base_model/panel_model.tscn" id="1_duh1f"]
+[ext_resource type="Script" uid="uid://bhiroumwojwtw" path="res://scene/ui/default_model/panel/create_new_panel.gd" id="2_da1vm"]
 
 [node name="CreateNewPanel" instance=ExtResource("1_duh1f")]
-
-[node name="CloseButton" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
-text = "X"
+script = ExtResource("2_da1vm")
 
 [node name="TitleLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 text = "创建面板"
+
+[node name="BGPanel" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
+unique_name_in_owner = true
+
+[node name="PanelList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
