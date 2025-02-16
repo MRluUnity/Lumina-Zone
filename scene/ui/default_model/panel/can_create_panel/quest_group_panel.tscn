@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ce2hjob8apheg" path="res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.gd" id="2_m0qq6"]
 
 [node name="QuestGroupPanel" instance=ExtResource("1_c3b4p")]
+custom_minimum_size = Vector2(300, 300)
 script = ExtResource("2_m0qq6")
 panel_name = "任务组面板"
 

@@ -37,7 +37,7 @@ func _on_open_panel_button_pressed() -> void:
 # TODO_FUC 关闭全部面板
 func _on_close_all_panel_button_pressed() -> void:
 	# WARNING 点击这个按钮可以关闭全部面板
-	UiTool.queue_all_panel()
+	UiTool.queue_all_panel(UiTool.UiType.PANEL)
 	UiTool.queue_free_null_ui_scene(self)
 #endregion
 

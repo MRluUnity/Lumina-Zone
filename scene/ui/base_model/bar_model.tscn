@@ -17,9 +17,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BarContextPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="BarContextPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-size_flags_vertical = 3

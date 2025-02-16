@@ -17,6 +17,9 @@ class_name BarModel extends PanelContainer
 
 # TODO 条形模块 ===============>变 量<===============
 #region 变量
+@onready var bar_context_panel: PanelContainer = %BarContextPanel
+
+
 
 #endregion
 
@@ -24,6 +27,11 @@ class_name BarModel extends PanelContainer
 #region 常用的虚方法
 func _ready() -> void:
 	pass
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("mouse_left"):
+			bar_context_panel.visible = not bar_context_panel.visible
 #endregion
 
 # TODO 条形模块 ===============>信号链接方法<===============

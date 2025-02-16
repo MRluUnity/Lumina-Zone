@@ -5,22 +5,22 @@
 #--------------------------------------
 class_name QuestGroupPanel extends PanelModel
 
-# TODO name ===============>信 号<===============
+# TODO 任务组面板 ===============>信 号<===============
 #region 信号
 
 #endregion
 
-# TODO name ===============>常 量<===============
+# TODO 任务组面板 ===============>常 量<===============
 #region 常量
 
 #endregion
 
-# TODO name ===============>变 量<===============
+# TODO 任务组面板 ===============>变 量<===============
 #region 变量
 
 #endregion
 
-# TODO name ===============>虚方法<===============
+# TODO 任务组面板 ===============>虚方法<===============
 #region 常用的虚方法
 func _init() -> void:
 	pass
@@ -28,25 +28,20 @@ func _init() -> void:
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
-	pass
+func _gui_input(event: InputEvent) -> void:
+	super._gui_input(event)
 
-func _physics_process(delta: float) -> void:
-	pass
-
-func _input(event: InputEvent) -> void:
-	pass
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("mouse_right"):
+			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["任务组工具面板"], UiTool.UiType.TOOL_PANEL, "ui_ex", get_global_mouse_position())
 #endregion
 
-# TODO name ===============>信号链接方法<===============
+# TODO 任务组面板 ===============>信号链接方法<===============
 #region 信号链接方法
 
 #endregion
 
-# TODO name ===============>工具方法<===============
+# TODO 任务组面板 ===============>工具方法<===============
 #region 工具方法
 
 #endregion

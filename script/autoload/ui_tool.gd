@@ -15,12 +15,16 @@ extends Node
 const UI_SCENE : Dictionary[String, PackedScene] = {
 	"MainToolPanel" : preload("res://scene/ui/default_model/tool_panel/main_tool_panel.tscn"),
 	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/create_new_panel.tscn"),
-	"QuestGroupPanel" : preload("res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.tscn")
+	"QuestGroupPanel" : preload("res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.tscn"),
+	"QuestGroupBar" : preload("res://scene/ui/default_model/bar/quest_group_bar.tscn"),
+	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_tool_panel.tscn")
 }
 const UI_NAME : Dictionary[String, String] = {
 	"主界面工具面板" : "MainToolPanel",
 	"创建新面板" : "CreateNewPanel",
-	"任务组面板" : "QuestGroupPanel"
+	"任务组面板" : "QuestGroupPanel",
+	"任务组条" : "QuestGroupBar",
+	"任务组工具面板" : "QuestGroupToolPanel"
 }
 enum UiType {
 	TOOL_PANEL,
@@ -86,7 +90,21 @@ func queue_free_null_ui_scene(ui_scene : Control) -> void:
 		if panel_uis[i] == null:
 			panel_uis.erase(i)
 
-func queue_all_panel() -> void:
-	for i in panel_uis:
-		queue_free_null_ui_scene(panel_uis[i])
+func queue_all_panel(ui_type : UiType) -> void:
+	match ui_type:
+		0:
+			if tool_uis.is_empty(): return
+			for i in tool_uis:
+				queue_free_null_ui_scene(tool_uis[i])
+		1:
+			if panel_uis.is_empty(): return
+			for i in panel_uis:
+				queue_free_null_ui_scene(panel_uis[i])
+		2:
+			if bar_uis.is_empty(): return
+			for i in bar_uis:
+				queue_free_null_ui_scene(bar_uis[i])
+
+
+
 #endregion

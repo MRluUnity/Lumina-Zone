@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://20im5vceptf6"]
+
+[ext_resource type="PackedScene" uid="uid://dlrg1035xr3wh" path="res://scene/ui/base_model/bar_model.tscn" id="1_4artn"]
+[ext_resource type="Script" uid="uid://cdjr6cfc05nv1" path="res://scene/ui/default_model/bar/quest_group_bar.gd" id="2_fqsrh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4artn"]
+font_size = 32
+
+[node name="QuestGroupBar" instance=ExtResource("1_4artn")]
+script = ExtResource("2_fqsrh")
+
+[node name="QuestLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "任务组示例文字"
+label_settings = SubResource("LabelSettings_4artn")
+
+[node name="ComponentButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/BarContextPanel" index="0"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+placeholder_text = "该任务组还没有描述"

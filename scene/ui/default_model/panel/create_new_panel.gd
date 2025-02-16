@@ -42,24 +42,12 @@ func _ready() -> void:
 		panel_list.add_child(button)
 
 		scene.queue_free()
-
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
-	pass
-
-func _input(event: InputEvent) -> void:
-	pass
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass
 #endregion
 
 # TODO 创建新面板UI ===============>信号链接方法<===============
 #region 信号链接方法
-func _on_panel_button_pressed(panel_name : String) -> void:
-	UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME[panel_name], UiTool.UiType.PANEL, "ui_ex")
+func _on_panel_button_pressed(_panel_name : String) -> void:
+	UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME[_panel_name], UiTool.UiType.PANEL, "ui_ex")
 	UiTool.queue_free_null_ui_scene(self)
 #endregion
 
