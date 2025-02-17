@@ -7,14 +7,34 @@
 script = ExtResource("2_ht78f")
 
 [node name="AddQuestButton" type="Button" parent="MarginContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "添加任务组"
+alignment = 0
 
 [node name="RenameButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "重命名"
+alignment = 0
+
+[node name="RemoveButton" type="Button" parent="MarginContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "删除任务组"
+alignment = 0
+
+[node name="HideAllQuestGroupContextButton" type="Button" parent="MarginContainer/VBoxContainer" index="3"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "隐藏所有任务组内容"
+alignment = 0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AddQuestButton" to="." method="_on_add_quest_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RenameButton" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HideAllQuestGroupContextButton" to="." method="_on_hide_all_quest_group_context_button_pressed"]

@@ -17,7 +17,13 @@ class_name QuestGroupBar extends BarModel
 
 # TODO 任务组条 ===============>变 量<===============
 #region 变量
+var is_rename : bool:
+	set(v):
+		is_rename = v
+		%QuestRenameLineEdit.visible = is_rename
+		%QuestGroupNameLabel.visible = not is_rename
 
+var quest_group_name : String
 #endregion
 
 # TODO 任务组条 ===============>虚方法<===============
@@ -29,6 +35,7 @@ func _gui_input(event: InputEvent) -> void:
 			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["任务组工具面板"], UiTool.UiType.TOOL_PANEL, "ui_tool", get_global_mouse_position(),
 			{
 				"function" : "bar_mode",
+				"value" : self
 			}
 			)
 		if event.is_action_pressed("mouse_left"):
@@ -38,12 +45,23 @@ func _gui_input(event: InputEvent) -> void:
 # TODO 任务组条 ===============>信号链接方法<===============
 #region 信号链接方法
 
+func _on_quest_rename_line_edit_text_submitted(new_text: String) -> void:
+	new_text.replace(".tres", "")
+
+	var dir = DirAccess.open(UiTool.current_focus_dir)
+
+	var err : Error = dir.rename(UiTool.current_focus_dir + %QuestGroupNameLabel.text, UiTool.current_focus_dir + new_text + ".tres")
+
+	UiTool.file_update.emit()
 #endregion
 
 # TODO 任务组条 ===============>工具方法<===============
 #region 工具方法
-func _set_quest_group(quest_group : QuestGroup) -> void:
-	%QuestGroupNameLabel.text = quest_group.quest_group_name
+func _set_quest_group(quest_group : QuestGroup, _quest_group_name : String) -> void:
+	%QuestGroupNameLabel.text = _quest_group_name
 	%QuestGroupDescTextEdit.text = quest_group.quest_group_desc
+
+	quest_group_name = _quest_group_name
 	tooltip_text = quest_group.quest_group_desc
+
 #endregion

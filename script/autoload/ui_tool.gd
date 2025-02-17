@@ -7,7 +7,7 @@ extends Node
 
 # TODO UI工具 ===============>信 号<===============
 #region 信号
-
+signal file_update
 #endregion
 
 # TODO UI工具 ===============>常 量<===============
@@ -41,6 +41,8 @@ var ui_canvas_layers : Dictionary[String, CanvasLayer] = {}
 var tool_uis : Dictionary[String, ToolPanelModel] = {}
 var panel_uis : Dictionary[String, Array] = {}
 var bar_uis : Dictionary[String, BarModel] = {}
+
+var current_focus_dir : String
 #endregion
 
 # TODO UI工具 ===============>虚方法<===============
@@ -71,6 +73,7 @@ func add_ui_scene_to_ui_ex(ui_name : String, ui_type : UiType, canvas_layer_name
 
 	match ui_type:
 		0:
+			queue_all_panel(UiType.TOOL_PANEL)
 			tool_uis[ui_name] = ui_scene
 		1:
 			if panel_uis.has(ui_name):
@@ -125,6 +128,7 @@ func queue_all_panel(ui_type : UiType) -> void:
 			for i in bar_uis:
 				queue_free_null_ui_scene(bar_uis[i])
 
-
+func _file_update() -> void:
+	file_update.emit()
 
 #endregion

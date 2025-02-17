@@ -17,7 +17,6 @@ class_name QuestGroup extends Resource
 
 # TODO 任务组 ===============>变 量<===============
 #region 变量
-@export var quest_group_name : String
 @export_multiline var quest_group_desc : String
 @export var quests : Array[Quest]
 #endregion

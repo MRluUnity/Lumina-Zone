@@ -19,7 +19,10 @@ class_name BarModel extends PanelContainer
 #region 变量
 @onready var bar_context_panel: PanelContainer = %BarContextPanel
 
-
+var context_visible : bool:
+	set(v):
+		context_visible = v
+		bar_context_panel.visible = context_visible
 
 #endregion
 
@@ -31,7 +34,7 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("mouse_left"):
-			bar_context_panel.visible = not bar_context_panel.visible
+			context_visible = not context_visible
 #endregion
 
 # TODO 条形模块 ===============>信号链接方法<===============

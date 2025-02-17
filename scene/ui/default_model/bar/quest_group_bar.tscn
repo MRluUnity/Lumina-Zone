@@ -15,7 +15,15 @@ script = ExtResource("2_fqsrh")
 [node name="HBoxContainer" parent="MarginContainer/VBoxContainer" index="0"]
 size_flags_vertical = 4
 
-[node name="QuestGroupNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+[node name="QuestRenameLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "输入新的文件名"
+alignment = 1
+
+[node name="QuestGroupNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -24,7 +32,7 @@ text = "任务组示例文字"
 label_settings = SubResource("LabelSettings_4artn")
 autowrap_mode = 3
 
-[node name="ComponentButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="ComponentButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -36,3 +44,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 placeholder_text = "该任务组还没有描述"
+
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer/QuestRenameLineEdit" to="." method="_on_quest_rename_line_edit_text_submitted"]
