@@ -26,23 +26,7 @@ var save_dir : String
 
 # TODO 添加任务组面板 ===============>虚方法<===============
 #region 常用的虚方法
-func _init() -> void:
-	pass
 
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
-	pass
-
-func _input(event: InputEvent) -> void:
-	pass
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass
 #endregion
 
 # TODO 添加任务组面板 ===============>信号链接方法<===============
@@ -63,7 +47,10 @@ func _on_create_quest_group_button_pressed() -> void:
 	ResourceSaver.save(quest_group, file_dialog.current_dir.path_join(quest_group.quest_group_name) + ".tres")
 	file_dialog.queue_free()
 
+	print("文件更新")
+
 	UiTool.queue_free_null_ui_scene(self)
+
 
 
 func _on_quest_group_name_line_edit_text_changed(new_text: String) -> void:

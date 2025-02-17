@@ -8,6 +8,13 @@ script = ExtResource("2_ht78f")
 
 [node name="AddQuestButton" type="Button" parent="MarginContainer/VBoxContainer" index="0"]
 layout_mode = 2
-text = "添加任务"
+text = "添加任务组"
+
+[node name="RenameButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "重命名"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AddQuestButton" to="." method="_on_add_quest_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RenameButton" to="." method="_on_rename_button_pressed"]

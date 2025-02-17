@@ -22,7 +22,17 @@ class_name QuestGroupBar extends BarModel
 
 # TODO 任务组条 ===============>虚方法<===============
 #region 常用的虚方法
-
+func _gui_input(event: InputEvent) -> void:
+	super._gui_input(event)
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("mouse_right"):
+			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["任务组工具面板"], UiTool.UiType.TOOL_PANEL, "ui_tool", get_global_mouse_position(),
+			{
+				"function" : "bar_mode",
+			}
+			)
+		if event.is_action_pressed("mouse_left"):
+			UiTool.queue_all_panel(UiTool.UiType.TOOL_PANEL)
 #endregion
 
 # TODO 任务组条 ===============>信号链接方法<===============

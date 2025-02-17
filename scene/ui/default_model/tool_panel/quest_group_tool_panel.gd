@@ -48,9 +48,12 @@ func _on_add_quest_button_pressed() -> void:
 	UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["添加任务组面板"], UiTool.UiType.PANEL, "ui_ex")
 	UiTool.queue_free_null_ui_scene(self)
 
+func _on_rename_button_pressed() -> void:
+	print("文件重命名")
 #endregion
 
 # TODO 任务组工具面板 ===============>工具方法<===============
 #region 工具方法
-
+func bar_mode() -> void:
+	%RenameButton.show()
 #endregion

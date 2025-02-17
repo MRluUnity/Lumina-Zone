@@ -39,7 +39,7 @@ enum UiType {
 #region 变量
 var ui_canvas_layers : Dictionary[String, CanvasLayer] = {}
 var tool_uis : Dictionary[String, ToolPanelModel] = {}
-var panel_uis : Dictionary[String, PanelModel] = {}
+var panel_uis : Dictionary[String, Array] = {}
 var bar_uis : Dictionary[String, BarModel] = {}
 #endregion
 
@@ -55,17 +55,28 @@ var bar_uis : Dictionary[String, BarModel] = {}
 
 # TODO UI工具 ===============>工具方法<===============
 #region 工具方法
-func add_ui_scene_to_ui_ex(ui_name : String, ui_type : UiType, canvas_layer_name : String = "ui", pos : Vector2 = Vector2.ZERO):
+func add_ui_scene_to_ui_ex(ui_name : String, ui_type : UiType, canvas_layer_name : String = "ui", pos : Vector2 = Vector2.ZERO, ex_value : Dictionary = {}):
 	var ui_scene = UI_SCENE[ui_name].instantiate()
+
+	if not ex_value.is_empty():
+		if ex_value.has("value"):
+			ui_scene.call(ex_value["function"], ex_value["value"])
+		else :
+			ui_scene.call(ex_value["function"])
 
 	if pos != Vector2.ZERO:
 		ui_scene.global_position = pos
+
 	ui_canvas_layers[canvas_layer_name].add_child(ui_scene)
+
 	match ui_type:
 		0:
 			tool_uis[ui_name] = ui_scene
 		1:
-			panel_uis[ui_name] = ui_scene
+			if panel_uis.has(ui_name):
+				panel_uis[ui_name].append(ui_scene)
+			else :
+				panel_uis[ui_name] = [ui_scene]
 		2:
 			bar_uis[ui_name] = ui_scene
 
@@ -89,7 +100,11 @@ func queue_free_null_ui_scene(ui_scene : Control) -> void:
 			tool_uis.erase(i)
 
 	for i in panel_uis:
-		if panel_uis[i] == null:
+		if not panel_uis[i].is_empty():
+			for panel in panel_uis[i]:
+				if panel == null:
+					panel_uis[i].erase(panel)
+		if panel_uis[i].size() == 0:
 			panel_uis.erase(i)
 
 func queue_all_panel(ui_type : UiType) -> void:
@@ -101,7 +116,10 @@ func queue_all_panel(ui_type : UiType) -> void:
 		1:
 			if panel_uis.is_empty(): return
 			for i in panel_uis:
-				queue_free_null_ui_scene(panel_uis[i])
+				if panel_uis[i].size() < 1:
+					continue
+				for panel in panel_uis[i]:
+					queue_free_null_ui_scene(panel)
 		2:
 			if bar_uis.is_empty(): return
 			for i in bar_uis:
