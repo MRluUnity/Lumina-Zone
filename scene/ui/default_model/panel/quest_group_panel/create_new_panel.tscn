@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c11gic5p10yd7"]
 
 [ext_resource type="PackedScene" uid="uid://dwmmrcdl0y5n5" path="res://scene/ui/base_model/panel_model.tscn" id="1_duh1f"]
-[ext_resource type="Script" uid="uid://bhiroumwojwtw" path="res://scene/ui/default_model/panel/create_new_panel.gd" id="2_da1vm"]
+[ext_resource type="Script" uid="uid://bhiroumwojwtw" path="res://scene/ui/default_model/panel/quest_group_panel/create_new_panel.gd" id="2_da1vm"]
 
 [node name="CreateNewPanel" instance=ExtResource("1_duh1f")]
 script = ExtResource("2_da1vm")

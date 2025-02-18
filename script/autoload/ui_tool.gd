@@ -14,11 +14,13 @@ signal file_update
 #region 常量
 const UI_SCENE : Dictionary[String, PackedScene] = {
 	"MainToolPanel" : preload("res://scene/ui/default_model/tool_panel/main_tool_panel.tscn"),
-	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/create_new_panel.tscn"),
+	"CreateNewPanel" : preload("res://scene/ui/default_model/panel/quest_group_panel/create_new_panel.tscn"),
 	"QuestGroupPanel" : preload("res://scene/ui/default_model/panel/can_create_panel/quest_group_panel.tscn"),
-	"QuestGroupBar" : preload("res://scene/ui/default_model/bar/quest_group_bar.tscn"),
-	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_tool_panel.tscn"),
-	"AddQuestGroupPanel" : preload("res://scene/ui/default_model/panel/add_quest_group_panel.tscn")
+	"QuestGroupBar" : preload("res://scene/ui/default_model/bar/quest_group_panel/quest_group_bar.tscn"),
+	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_panel/quest_group_tool_panel.tscn"),
+	"AddQuestGroupPanel" : preload("res://scene/ui/default_model/panel/quest_group_panel/add_quest_group_panel.tscn"),
+	"QuestPanel" : preload("res://scene/ui/default_model/panel/quest_panel/quest_panel.tscn"),
+	"QuestBar" : preload("res://scene/ui/default_model/bar/quest_panel/quest_bar.tscn")
 }
 const UI_NAME : Dictionary[String, String] = {
 	"主界面工具面板" : "MainToolPanel",
@@ -26,7 +28,9 @@ const UI_NAME : Dictionary[String, String] = {
 	"任务组面板" : "QuestGroupPanel",
 	"任务组条" : "QuestGroupBar",
 	"任务组工具面板" : "QuestGroupToolPanel",
-	"添加任务组面板" : "AddQuestGroupPanel"
+	"添加任务组面板" : "AddQuestGroupPanel",
+	"任务面板" : "QuestPanel",
+	"任务条" : "QuestBar"
 }
 enum UiType {
 	TOOL_PANEL,

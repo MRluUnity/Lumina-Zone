@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsy0n7jcajacv"]
+
+[ext_resource type="PackedScene" uid="uid://dwmmrcdl0y5n5" path="res://scene/ui/base_model/panel_model.tscn" id="1_l8kp3"]
+[ext_resource type="Script" uid="uid://cgle03kmiluc3" path="res://scene/ui/default_model/panel/quest_panel/quest_panel.gd" id="2_8rxhi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rxhi"]
+font_size = 32
+
+[node name="QuestPanel" instance=ExtResource("1_l8kp3")]
+custom_minimum_size = Vector2(600, 600)
+offset_left = -319.0
+offset_top = -300.0
+offset_right = 281.0
+offset_bottom = 300.0
+script = ExtResource("2_8rxhi")
+
+[node name="QuestGroupNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "任务组名称"
+label_settings = SubResource("LabelSettings_8rxhi")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" index="2"]
+text = "任务面板"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="QuestList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2

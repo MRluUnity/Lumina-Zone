@@ -30,6 +30,8 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		drag = event.is_action_pressed("mouse_mid")
+		if event.is_action_pressed("mouse_left"):
+			get_parent().move_child(self, -1)
 
 	if drag:
 		global_position = get_global_mouse_position() - drag_pos

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://20im5vceptf6"]
 
 [ext_resource type="PackedScene" uid="uid://dlrg1035xr3wh" path="res://scene/ui/base_model/bar_model.tscn" id="1_4artn"]
-[ext_resource type="Script" uid="uid://cdjr6cfc05nv1" path="res://scene/ui/default_model/bar/quest_group_bar.gd" id="2_fqsrh"]
+[ext_resource type="Script" uid="uid://cdjr6cfc05nv1" path="res://scene/ui/default_model/bar/quest_group_panel/quest_group_bar.gd" id="2_fqsrh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4artn"]
 font_size = 32

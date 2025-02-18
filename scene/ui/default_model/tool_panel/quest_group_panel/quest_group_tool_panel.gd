@@ -40,8 +40,7 @@ func _on_rename_button_pressed() -> void:
 
 # TODO_FUC 删除按钮信号方法
 func _on_remove_button_pressed() -> void:
-	var dir = DirAccess.open(UiTool.current_focus_dir)
-	dir.remove_absolute(UiTool.current_focus_dir + quest_group_bar.quest_group_name)
+	DirAccess.remove_absolute(UiTool.current_focus_dir + quest_group_bar.quest_group_name)
 	UiTool.file_update.emit()
 	UiTool.queue_free_null_ui_scene(self)
 
