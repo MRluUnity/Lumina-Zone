@@ -33,6 +33,14 @@ class_name QuestGroup extends Resource
 
 # TODO 任务组 ===============>工具方法<===============
 #region 工具方法
+func get_quests_complete_count() -> float:
+	var complete_count : float
+	for quest in quests:
+		if not quest.complete:
+			continue
+		complete_count += 1
+	return complete_count / float(quests.size())
+
 func save_quest_group() -> void:
 	ResourceSaver.save(self, self.resource_path)
 #endregion

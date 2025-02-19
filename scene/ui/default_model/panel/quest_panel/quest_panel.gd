@@ -42,15 +42,20 @@ func _gui_input(event: InputEvent) -> void:
 
 # TODO 任务面板 ===============>信号链接方法<===============
 #region 信号链接方法
-
+# TODO_FUC 关闭窗口信号方法
+func _on_close_button_pressed() -> void:
+	quest_group.save_quest_group()
+	super._on_close_button_pressed()
 #endregion
 
 # TODO 任务面板 ===============>工具方法<===============
 #region 工具方法
 func _set_quest_panel(value_dic : Dictionary) -> void:
 	%QuestGroupNameLabel.text = value_dic.keys()[0]
-	update_quest_list(value_dic[%QuestGroupNameLabel.text].quests)
 	quest_group = value_dic[%QuestGroupNameLabel.text]
+	UiTool.current_quest_group = quest_group
+
+	update_quest_list(value_dic[%QuestGroupNameLabel.text].quests)
 
 func update_quest_list(quests : Array) -> void:
 	for i in %QuestList.get_children():
@@ -58,6 +63,12 @@ func update_quest_list(quests : Array) -> void:
 
 	for i : Quest in quests:
 		var quest_bar : QuestBar = UiTool.create_ui_scene(UiTool.UI_NAME["任务条"])
+		quest_bar.quest_complete.connect(func() :
+			%QuestGorupProgressBar.value = quest_group.get_quests_complete_count()
+			)
 		%QuestList.add_child(quest_bar)
 		quest_bar._set_quest(i)
+
+	%QuestGorupProgressBar.max_value = 1
+	%QuestGorupProgressBar.value = quest_group.get_quests_complete_count()
 #endregion

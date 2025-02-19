@@ -57,6 +57,7 @@ func _gui_input(event: InputEvent) -> void:
 					"value" : {quest_group_name.replace(".tres", "") : quest_group}
 				}
 				)
+				UiTool.current_quest_group = quest_group
 
 #endregion
 

@@ -7,7 +7,7 @@ class_name QuestBar extends BarModel
 
 # TODO 任务条 ===============>信 号<===============
 #region 信号
-
+signal quest_complete
 #endregion
 
 # TODO 任务条 ===============>常 量<===============
@@ -39,7 +39,11 @@ func _gui_input(event: InputEvent) -> void:
 
 # TODO 任务条 ===============>信号链接方法<===============
 #region 信号链接方法
-
+func _on_component_button_toggled(toggled_on: bool) -> void:
+	self_modulate.a = .6 if toggled_on else 1.
+	UiTool.current_quest_group.quests[get_index()].complete = toggled_on
+	UiTool.current_quest_group.save_quest_group()
+	quest_complete.emit()
 #endregion
 
 # TODO 任务条 ===============>工具方法<===============
@@ -48,5 +52,8 @@ func _set_quest(_quest : Quest) -> void:
 	%QuestNameLabel.text = _quest.quest_name
 	%QuestDescTextEdit.text = _quest.quest_desc
 
-	tooltip_text = _quest.quest_desc
+	%ComponentButton.button_pressed = _quest.complete
+	self_modulate.a = .6 if %ComponentButton.button_pressed else 1.
+	%ComponentButton.toggled.connect(_on_component_button_toggled)
+	#tooltip_text = _quest.quest_desc
 #endregion
