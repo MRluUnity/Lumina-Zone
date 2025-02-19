@@ -33,5 +33,6 @@ class_name QuestGroup extends Resource
 
 # TODO 任务组 ===============>工具方法<===============
 #region 工具方法
-
+func save_quest_group() -> void:
+	ResourceSaver.save(self, self.resource_path)
 #endregion

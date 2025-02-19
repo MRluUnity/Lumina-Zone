@@ -55,10 +55,7 @@ func _on_create_quest_group_button_pressed() -> void:
 
 
 func _on_quest_group_name_line_edit_text_changed(new_text: String) -> void:
-	if new_text != "":
-		create_quest_group_button.disabled = false
-	else :
-		create_quest_group_button.disabled = true
+	create_quest_group_button.disabled = new_text == ""
 #endregion
 
 # TODO 添加任务组面板 ===============>工具方法<===============

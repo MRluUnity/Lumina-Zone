@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://b5hcudv6gyam6" path="res://scene/ui/default_model/panel/quest_group_panel/add_quest_group_panel.gd" id="2_7ygrc"]
 
 [node name="AddQuestGroupPanel" instance=ExtResource("1_3ddy1")]
+offset_left = -185.0
+offset_top = -261.5
+offset_right = 185.0
+offset_bottom = 261.5
 script = ExtResource("2_7ygrc")
 
 [node name="TitleLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]

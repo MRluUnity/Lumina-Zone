@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://brk1jnajg02g6"]
+
+[ext_resource type="PackedScene" uid="uid://12qrgxt2kjj3" path="res://scene/ui/base_model/tool_panel_model.tscn" id="1_s6mua"]
+[ext_resource type="Script" uid="uid://0d8f2pdldn1g" path="res://scene/ui/default_model/tool_panel/quest_panel/quest_tool_panel.gd" id="2_b6kpw"]
+
+[node name="QuestToolPanel" instance=ExtResource("1_s6mua")]
+script = ExtResource("2_b6kpw")
+
+[node name="AddQuestButton" type="Button" parent="MarginContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "添加任务"
+alignment = 0
+
+[node name="RemoveQuestButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "删除任务"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AddQuestButton" to="." method="_on_add_quest_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RemoveQuestButton" to="." method="_on_remove_quest_button_pressed"]

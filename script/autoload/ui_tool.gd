@@ -20,7 +20,9 @@ const UI_SCENE : Dictionary[String, PackedScene] = {
 	"QuestGroupToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_group_panel/quest_group_tool_panel.tscn"),
 	"AddQuestGroupPanel" : preload("res://scene/ui/default_model/panel/quest_group_panel/add_quest_group_panel.tscn"),
 	"QuestPanel" : preload("res://scene/ui/default_model/panel/quest_panel/quest_panel.tscn"),
-	"QuestBar" : preload("res://scene/ui/default_model/bar/quest_panel/quest_bar.tscn")
+	"QuestBar" : preload("res://scene/ui/default_model/bar/quest_panel/quest_bar.tscn"),
+	"QuestToolPanel" : preload("res://scene/ui/default_model/tool_panel/quest_panel/quest_tool_panel.tscn"),
+	"AddQuestPanel" : preload("res://scene/ui/default_model/panel/quest_panel/add_quest_panel.tscn")
 }
 const UI_NAME : Dictionary[String, String] = {
 	"主界面工具面板" : "MainToolPanel",
@@ -30,7 +32,9 @@ const UI_NAME : Dictionary[String, String] = {
 	"任务组工具面板" : "QuestGroupToolPanel",
 	"添加任务组面板" : "AddQuestGroupPanel",
 	"任务面板" : "QuestPanel",
-	"任务条" : "QuestBar"
+	"任务条" : "QuestBar",
+	"任务工具面板" : "QuestToolPanel",
+	"添加任务面板" : "AddQuestPanel"
 }
 enum UiType {
 	TOOL_PANEL,
@@ -47,6 +51,7 @@ var panel_uis : Dictionary[String, Array] = {}
 var bar_uis : Dictionary[String, BarModel] = {}
 
 var current_focus_dir : String
+var current_quest_group : QuestGroup
 #endregion
 
 # TODO UI工具 ===============>虚方法<===============
@@ -135,4 +140,6 @@ func queue_all_panel(ui_type : UiType) -> void:
 func _file_update() -> void:
 	file_update.emit()
 
+func not_has_tool() -> bool:
+	return tool_uis.is_empty()
 #endregion

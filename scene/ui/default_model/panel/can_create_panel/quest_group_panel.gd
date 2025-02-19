@@ -33,7 +33,9 @@ func _ready() -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	super._gui_input(event)
-	UiTool.current_focus_dir = file_dir
+
+	if UiTool.not_has_tool():
+		UiTool.current_focus_dir = file_dir
 
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("mouse_right"):
