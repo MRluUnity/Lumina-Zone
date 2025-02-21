@@ -19,6 +19,7 @@ class_name QuestGroup extends Resource
 #region 变量
 @export_multiline var quest_group_desc : String
 @export var quests : Array[Quest]
+@export var dead_line_time : Dictionary
 #endregion
 
 # TODO 任务组 ===============>虚方法<===============

@@ -52,27 +52,21 @@ func _on_create_quest_button_pressed() -> void:
 
 func _on_year_spin_value_changed(value: float) -> void:
 	time_dic["year"] = value
-	print(time_dic)
 
 func _on_month_spin_value_changed(value: float) -> void:
 	time_dic["month"] = value
-	print(time_dic)
 
 func _on_day_box_value_changed(value: float) -> void:
 	time_dic["day"] = value
-	print(time_dic)
 
 func _on_hour_box_value_changed(value: float) -> void:
 	time_dic["hour"] = value
-	print(time_dic)
 
 func _on_minute_box_value_changed(value: float) -> void:
 	time_dic["minute"] = value
-	print(time_dic)
 
 func _on_second_box_value_changed(value: float) -> void:
 	time_dic["second"] = value
-	print(time_dic)
 
 func _on_open_time_mode_button_toggled(toggled_on: bool) -> void:
 	%YearSpin.visible = toggled_on

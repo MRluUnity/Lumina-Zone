@@ -41,8 +41,8 @@ func _gui_input(event: InputEvent) -> void:
 #region 信号链接方法
 func _on_component_button_toggled(toggled_on: bool) -> void:
 	self_modulate.a = .6 if toggled_on else 1.
-	UiTool.current_quest_group.quests[get_index()].complete = toggled_on
-	UiTool.current_quest_group.save_quest_group()
+	QuestGroupModelController.current_quest_group.quests[get_index()].complete = toggled_on
+	QuestGroupModelController.current_quest_group.save_quest_group()
 	quest_complete.emit()
 #endregion
 
