@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://p4kh37481p3g" path="res://scene/ui/default_model/panel/quest_panel/add_quest_panel.gd" id="2_yimuo"]
 
 [node name="AddQuestPanel" instance=ExtResource("1_52y4x")]
-custom_minimum_size = Vector2(370, 0)
+custom_minimum_size = Vector2(540, 0)
 offset_left = -164.0
 offset_top = -261.5
 offset_right = 164.0
@@ -30,6 +30,64 @@ custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 placeholder_text = "请输入任务介绍"
 
+[node name="OpenTimeModeButton" type="CheckButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "是否打开限时模式"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="YearSpin" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+min_value = 2025.0
+max_value = 99999.0
+value = 2025.0
+alignment = 1
+
+[node name="MonthSpin" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+alignment = 1
+
+[node name="DayBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+min_value = 1.0
+max_value = 31.0
+value = 1.0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="HourBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 23.0
+alignment = 1
+
+[node name="MinuteBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 59.0
+alignment = 1
+
+[node name="SecondBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 59.0
+alignment = 1
+
 [node name="CreateQuestButton" type="Button" parent="MarginContainer/VBoxContainer" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
@@ -40,4 +98,11 @@ disabled = true
 text = "创建"
 
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/QuestNameLineEdit" to="." method="_on_quest_name_line_edit_text_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/OpenTimeModeButton" to="." method="_on_open_time_mode_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YearSpin" to="." method="_on_year_spin_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MonthSpin" to="." method="_on_month_spin_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DayBox" to="." method="_on_day_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/HourBox" to="." method="_on_hour_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MinuteBox" to="." method="_on_minute_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/SecondBox" to="." method="_on_second_box_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CreateQuestButton" to="." method="_on_create_quest_button_pressed"]

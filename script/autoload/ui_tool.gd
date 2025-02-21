@@ -7,7 +7,7 @@ extends Node
 
 # TODO UI工具 ===============>信 号<===============
 #region 信号
-signal file_update
+
 #endregion
 
 # TODO UI工具 ===============>常 量<===============
@@ -50,8 +50,7 @@ var tool_uis : Dictionary[String, ToolPanelModel] = {}
 var panel_uis : Dictionary[String, Array] = {}
 var bar_uis : Dictionary[String, BarModel] = {}
 
-var current_focus_dir : String
-var current_quest_group : QuestGroup
+var open_panel_controllers : Dictionary
 #endregion
 
 # TODO UI工具 ===============>虚方法<===============
@@ -124,7 +123,8 @@ func queue_all_panel(ui_type : UiType) -> void:
 		0:
 			if tool_uis.is_empty(): return
 			for i in tool_uis:
-				queue_free_null_ui_scene(tool_uis[i])
+				if tool_uis[i] != null:
+					queue_free_null_ui_scene(tool_uis[i])
 		1:
 			if panel_uis.is_empty(): return
 			for i in panel_uis:
@@ -136,9 +136,6 @@ func queue_all_panel(ui_type : UiType) -> void:
 			if bar_uis.is_empty(): return
 			for i in bar_uis:
 				queue_free_null_ui_scene(bar_uis[i])
-
-func _file_update() -> void:
-	file_update.emit()
 
 func not_has_tool() -> bool:
 	return tool_uis.is_empty()

@@ -42,5 +42,7 @@ unique_name_in_owner = true
 
 [node name="UiTool" type="CanvasLayer" parent="."]
 
+[node name="Controllers" type="Node2D" parent="." groups=["Controller"]]
+
 [connection signal="gui_input" from="Ui/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="pressed" from="Ui/Panel/MarginContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]

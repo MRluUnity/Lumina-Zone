@@ -23,11 +23,10 @@ var file_dir := "C:/Users/Lenovo/Desktop/testaaa/"
 
 # TODO 任务组面板 ===============>虚方法<===============
 #region 常用的虚方法
-func _init() -> void:
-	pass
-
 func _ready() -> void:
-	UiTool.file_update.connect(_update_quest_group_list)
+	var quest_group_panel_controller : QuestGroupModelController = QuestGroupModelController.new()
+	get_tree().get_first_node_in_group("Controller").add_child(quest_group_panel_controller)
+	QuestGroupModelController.controller.file_update.connect(_update_quest_group_list)
 
 	_update_quest_group_list()
 
@@ -35,11 +34,14 @@ func _gui_input(event: InputEvent) -> void:
 	super._gui_input(event)
 
 	if UiTool.not_has_tool():
-		UiTool.current_focus_dir = file_dir
+		QuestGroupModelController.current_focus_dir = file_dir
 
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("mouse_right"):
-			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["任务组工具面板"], UiTool.UiType.TOOL_PANEL, "ui_tool", get_global_mouse_position(),
+			UiTool.add_ui_scene_to_ui_ex(UiTool.UI_NAME["任务组工具面板"],
+			UiTool.UiType.TOOL_PANEL,
+			"ui_tool",
+			get_global_mouse_position(),
 			{
 				"function" : "quest_group_panel_mode",
 				"value" : self

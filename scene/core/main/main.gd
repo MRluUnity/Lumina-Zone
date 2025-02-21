@@ -30,6 +30,7 @@ func _ready() -> void:
 	UiTool.ui_canvas_layers["ui"] = ui
 	UiTool.ui_canvas_layers["ui_ex"] = ui_ex
 	UiTool.ui_canvas_layers["ui_tool"] = ui_tool
+
 #endregion
 
 # TODO 主场景 ===============>信号链接方法<===============

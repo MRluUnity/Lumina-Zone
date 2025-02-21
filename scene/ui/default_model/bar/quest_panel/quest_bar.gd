@@ -53,6 +53,18 @@ func _set_quest(_quest : Quest) -> void:
 	%QuestDescTextEdit.text = _quest.quest_desc
 
 	%ComponentButton.button_pressed = _quest.complete
+	if _quest.dead_line_time.size() != 0:
+		%TimeLabel.show()
+		%TimeLabel.text = "任务的截止时间是：%s年%s月%s日%s时%s分%s秒" %\
+		 [
+			int(_quest.dead_line_time["year"]),
+			int(_quest.dead_line_time["month"]),
+			int(_quest.dead_line_time["day"]),
+			int(_quest.dead_line_time["hour"]),
+			int(_quest.dead_line_time["minute"]),
+			int(_quest.dead_line_time["second"])
+		]
+
 	self_modulate.a = .6 if %ComponentButton.button_pressed else 1.
 	%ComponentButton.toggled.connect(_on_component_button_toggled)
 	#tooltip_text = _quest.quest_desc

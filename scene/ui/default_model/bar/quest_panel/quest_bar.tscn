@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqui2t204o0ff"]
+[gd_scene load_steps=5 format=3 uid="uid://cqui2t204o0ff"]
 
 [ext_resource type="PackedScene" uid="uid://dlrg1035xr3wh" path="res://scene/ui/base_model/bar_model.tscn" id="1_p4l84"]
 [ext_resource type="Script" uid="uid://cse55bfr6y1tp" path="res://scene/ui/default_model/bar/quest_panel/quest_bar.gd" id="2_tf0wk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4l84"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_tf0wk"]
+font_size = 24
 
 [node name="QuestBar" instance=ExtResource("1_p4l84")]
 custom_minimum_size = Vector2(450, 0)
@@ -34,7 +37,17 @@ layout_mode = 2
 size_flags_horizontal = 10
 toggle_mode = true
 
-[node name="QuestDescTextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/BarContextPanel" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContextPanel" index="0"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/BarContextPanel/VBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "任务的截止时间是："
+label_settings = SubResource("LabelSettings_tf0wk")
+
+[node name="QuestDescTextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/BarContextPanel/VBoxContainer" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2

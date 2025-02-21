@@ -27,7 +27,7 @@ var save_dir : String
 # TODO 添加任务组面板 ===============>虚方法<===============
 #region 常用的虚方法
 func _ready() -> void:
-	update_quest_group.connect(UiTool._file_update)
+	update_quest_group.connect(QuestGroupModelController.controller._file_update)
 #endregion
 
 # TODO 添加任务组面板 ===============>信号链接方法<===============
